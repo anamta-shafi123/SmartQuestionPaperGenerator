@@ -32,6 +32,7 @@ User-Friendly Interface: Easy for teachers to input requirements and generate pa
 3. Data Structures Used & Justification
    
 3.1 HashMap (topicSet)
+
 Structure: unordered_map<string, set<int>> topicSet
 Purpose:
 - Stores topics as keys
@@ -42,6 +43,7 @@ Reason for Use:
 - Ideal for filtering questions by selected topic
   
 3.2 HashSet (usedQuestions)
+
 Structure: unordered_set<int> usedQuestions
 Purpose:
 - Ensures unique, non-repeated questions
@@ -50,6 +52,7 @@ Reason for Use:
 - Guarantees no repeated questions
   
 3.3 Priority Queue (Min Heap)
+
 Structure: priority_queue<Question, vector<Question>, compareMarks>
 Purpose:
 - Used in greedy phase for leftover mark fill
@@ -58,6 +61,7 @@ Reason for Use:
 - Min-heap ensures optimal selection
   
 3.4 Vectors
+
 Structures:
 - vector<Question> selectedQuestions
 - vector<Question> filteredQuestions
@@ -69,6 +73,7 @@ Reason for Use:
 - Efficient for storing filtered subsets
   
 3.5 TopicTrie (Trie Data Structure)
+
 Structure: Custom Trie class
 Purpose:
 - Auto-suggestion for topic names
@@ -77,6 +82,7 @@ Reason for Use:
 - Makes UI interactive
   
 4. Algorithmic Approach
+   
 4.1 Backtracking Algorithm (Phase 1)
 Used for CLO ratios, difficulty ratios, topics, and total marks constraints.
 Working:
@@ -89,6 +95,7 @@ Why Backtracking?
 - Ensures correctness
   
 4.2 Greedy Algorithm (Phase 2)
+
 Used after backtracking for remaining marks.
 Working:
 - Insert candidate leftover questions in min-heap
@@ -98,11 +105,13 @@ Why Greedy?
 - Fast and optimal local decisions
   
 4.3 Hybrid Benefit
+
 Backtracking ensures correctness.
 Greedy ensures optimization.
 Together they create a robust generator.
 
 5. System Workflow
+   
 Main Window
 Contains four buttons:
 - Add Question
@@ -111,14 +120,19 @@ Contains four buttons:
 - Exit
   
 5.1 Add Question Window
+
 User enters topic, course, CLO, difficulty, question text, marks.
 System:
 - Stores question
 - Updates topicSet
 - Updates Trie
+  
 5.2 View Question Bank
+
 Displays questions searchable by topic, difficulty, CLO, and marks.
+
 5.3 Generate Paper Window
+
 User provides university, department, course, total marks, topics, CLO and difficulty ratios.
 System generates paper, shows preview, allows PDF export.
 
