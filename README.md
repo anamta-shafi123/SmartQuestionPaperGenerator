@@ -1,4 +1,10 @@
 SMART PAPER GENERATOR – PROJECT REPORT
+
+Frontend: Qt Framework
+Backend: C++
+Algorithms Used: Backtracking + Greedy Hybrid Approach
+
+
 1. Introduction
 
 Creating a fair and balanced question paper is a time-consuming task for teachers. They must ensure:
@@ -24,6 +30,7 @@ Clean & Printable Output: Generates a polished final question paper ready for pr
 User-Friendly Interface: Easy for teachers to input requirements and generate papers quickly.
 
 3. Data Structures Used & Justification
+   
 3.1 HashMap (topicSet)
 Structure: unordered_map<string, set<int>> topicSet
 Purpose:
@@ -33,6 +40,7 @@ Reason for Use:
 - Provides O(1) average-time complexity
 - Fast topic-based lookups
 - Ideal for filtering questions by selected topic
+  
 3.2 HashSet (usedQuestions)
 Structure: unordered_set<int> usedQuestions
 Purpose:
@@ -40,6 +48,7 @@ Purpose:
 Reason for Use:
 - Fast membership checking
 - Guarantees no repeated questions
+  
 3.3 Priority Queue (Min Heap)
 Structure: priority_queue<Question, vector<Question>, compareMarks>
 Purpose:
@@ -47,6 +56,7 @@ Purpose:
 Reason for Use:
 - Greedy relies on selecting minimum-mark elements
 - Min-heap ensures optimal selection
+  
 3.4 Vectors
 Structures:
 - vector<Question> selectedQuestions
@@ -57,6 +67,7 @@ Reason for Use:
 - Dynamic resizing
 - Easy sequential access
 - Efficient for storing filtered subsets
+  
 3.5 TopicTrie (Trie Data Structure)
 Structure: Custom Trie class
 Purpose:
@@ -64,6 +75,7 @@ Purpose:
 Reason for Use:
 - Fast prefix searching
 - Makes UI interactive
+  
 4. Algorithmic Approach
 4.1 Backtracking Algorithm (Phase 1)
 Used for CLO ratios, difficulty ratios, topics, and total marks constraints.
@@ -75,6 +87,7 @@ Working:
 Why Backtracking?
 - Handles complex constraints
 - Ensures correctness
+  
 4.2 Greedy Algorithm (Phase 2)
 Used after backtracking for remaining marks.
 Working:
@@ -83,10 +96,12 @@ Working:
 - Fill remaining marks
 Why Greedy?
 - Fast and optimal local decisions
+  
 4.3 Hybrid Benefit
 Backtracking ensures correctness.
 Greedy ensures optimization.
 Together they create a robust generator.
+
 5. System Workflow
 Main Window
 Contains four buttons:
@@ -94,6 +109,7 @@ Contains four buttons:
 - View Question Bank
 - Generate Paper
 - Exit
+  
 5.1 Add Question Window
 User enters topic, course, CLO, difficulty, question text, marks.
 System:
@@ -105,6 +121,7 @@ Displays questions searchable by topic, difficulty, CLO, and marks.
 5.3 Generate Paper Window
 User provides university, department, course, total marks, topics, CLO and difficulty ratios.
 System generates paper, shows preview, allows PDF export.
+
 6. Frontend and Backend Technologies
 Frontend – Qt
 - UI, buttons, input fields, preview window, PDF export
